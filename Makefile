@@ -4,12 +4,18 @@ LL=pdflatex
 
 all: $(TARGET) revision.tex
 
+pdf: all
+
 .PHONY : clean revision.tex
 
 revision.tex:
 	echo "\\newcommand{\\revision}{`git show-ref refs/heads/master | cut -d " " -f 1 | cut -c 1-7`}" > revision.tex
 
-$(TARGET): $(TARGET:%.pdf=%.tex) $(SRC)
+%.toc: $(TARGET:%.pdf=%.tex) $(SRC)
+	$(LL) $<
+	rm $(TARGET)
+
+$(TARGET): $(TARGET:%.pdf=%.tex) $(TARGET:%.pdf=%.toc) $(SRC)
 	$(LL) $<
 
 clean:
@@ -17,4 +23,5 @@ clean:
 	rm -f *.out
 	rm -f *.aux
 	rm -f *.log
+	rm -f *.toc
 
