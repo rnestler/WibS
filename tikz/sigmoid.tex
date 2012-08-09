@@ -7,6 +7,7 @@
 	\draw (-0.1,2.5) -- (0.1,2.5) node [left] {$0.5~$};
 
 	\draw[color=blue] plot (\x,{5 / (1+exp(-\x))}) node[right] {$\frac{1}{1+e^{-ax}}$};
+	\draw[color=red]  plot (\x,{5 / (1+exp(-\x)) * (1-1/(1+exp(-\x)))}) node[above right] {$sig'(x)=sig(t)(1-sig(t))$};
 
 \end{tikzpicture}
 
