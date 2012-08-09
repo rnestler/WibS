@@ -1,5 +1,37 @@
 \section{Clustering}
-\subsection{Verfahren}
+\subsection{Übersicht}
+\input{tikz/clustering}
+\subsection{Distanzmasse}
+Bevor man überhaupt clustern kann, benötigt man eine passende Distanzfunktion für die einzelnen Elemente untereinander und zu einem Cluster.
+\begin{table}[htbp]
+	\begin{tabular}{p{8cm} | p{8cm}}
+		Beschreibung & Formel \\
+		\hline
+		{Der minimale/maximale Abstand} & {
+			$\underset{a \in A, b \in B}{min}\{d(a,b)\} ~ \underset{a \in A, b \in B}{max}\{d(a,b)\}$
+		}
+		\\
+		{Der durchschnittliche Abstand aller Elementpaare aus den beiden Clustern (average linkage clustering)} & {
+			$\frac{1}{|A||B|} \sum\limits_{a \in A, b \in B}{d(a,b)}$
+		}
+		\\
+		{Der durchschnittliche Abstand aller Elementpaare aus der Vereinigung von A und B} & {
+			$\frac{1}{|C|} \sum\limits_{x,y \in C, C=A \cup B}{d(x,y)}$
+		}
+		\\
+		{Der Abstand der Mittelwerte der beiden Cluster} & {
+			$d(\overline a, \overline b)$
+		}
+		\\
+		{Die Zunahme der Varianz beim Vereinigen von A und B (Wards method)} & {
+			$\frac{\overline a, \overline b}{\frac{1}{|A|} + \frac{1}{|B|}}$
+		}
+	\end{tabular}
+	\caption{Verschiedene Distanzmasse}
+	\label{tab:distanzmasse}
+\end{table}
 \subsection{K-means Clustering}
-\subsection{SCC Clustering}
+Unüberwachtes hartes Clusteringverfahren welches nicht unbedingt konvergiert.
+\subsection{SCC- / Pott-Spin Clustering}
+Es wird nicht vorgegeben wieviel Cluster erwartet werden. Pott-Spin verwendet Temperatur, SCS kann Cluster unterschiedlicher Dichte aufspüren.
 

@@ -1,5 +1,5 @@
 TARGET=WibS.pdf
-SRC = sections/*.tex header/header.tex
+SRC = sections/*.tex header/header.tex tikz/*.tex
 LL=pdflatex
 
 all: $(TARGET) revision.tex
