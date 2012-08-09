@@ -2,6 +2,46 @@
 Ein Neuron ist ein Schwingkreis. Es hat n Eingänge und einen Ausgang. Die Werte der
 Eingänge werden summiert. Wenn die Summe der Eingänge einen Schwellwert übertrifft, wechselt der Ausgang, das Neuron feuert.
 Für die Schwellwertfunktion, wird entweder die Signum (0/1) oder die Sigmoid-Funktion welche ``weiche'' Kanten hat verwendet.
+\subsection{Übersicht}
+\begin{table}[htbp]
+	\begin{tabular}{l | p{8cm}}
+		Typ & Merkmale \\
+		\hline
+		{klassisches Perzeptron} & {
+			\begin{itemize}
+				\item Können nur linear separierbare Probleme lösen
+				\item Ein einzelnes Perzeptron-Neuron kann 14 Schnittebenen legen
+			\end{itemize}
+		}
+		\\
+		{Holographisches Perzeptron} & {
+			\begin{itemize}
+				\item Verwendet Komplexe Zahlen
+				\item Sehr grosse Speicherfähigkeit
+				\item Grosse Verarbeitungsgeschwindigkeit
+				\item Stochastische Resonanz (benötigt Rauschen im Input)
+			\end{itemize}
+		}
+		\\
+		{Kohonen-Netze} & {
+			\begin{itemize}
+				\item Topographisches Netz
+				\item Geeignet für TSP-Problem
+			\end{itemize}
+		}
+		\\
+		{Hopfield} & {
+			\begin{itemize}
+				\item Lernt nicht bzw. unüberwachtes Lernen
+				\item Nur eine Schicht, gleichzeitig Ein- und Ausgabe
+				\item Jedes der binären Neuronen mit jedem verbunden
+				\item Erkennt invertierte Muster als gleich
+			\end{itemize}
+		}
+	\end{tabular}
+	\caption{Vergleich zwischen verschiedenen Neuronalen Netzen}
+	\label{tab:nnetze}
+\end{table}
 \subsection{Klassisches Neuron / Perzeptron}
 Das Perzeptron ist das klassische mathematische Neuron. Es besteht aus:
 \begin{itemize}
@@ -9,7 +49,13 @@ Das Perzeptron ist das klassische mathematische Neuron. Es besteht aus:
 	\item Feuerschwelle
 	\item Ausgabefunktion (Sigmoid)
 \end{itemize}
+\subsection{Netze elementarer Perzeptronen}
 \subsection{Backpropagation}
-\subsection{Hopfield}
+\subsection{Holographisches Perzeptron}
 \subsection{Kohonennetze}
+\subsection{Hopfield}
+Das Hopfield-Netz ist geeignet um Muster (Bilder) zu kennen. Dabei wird pro Pixel ein binäres Neuron verwendet (-1,1).
+Dazu erstellt man eine Korrelationsmatrix, welche alle Muster enthält, es wird nicht gelernt!
+Pro zu erkennendes Muster werden etwa 7 Neuronen benötigt.
+Für eine gute Erkennung sollten die Muster möglichst orthogonal, also linear unabhängig sein.
 
