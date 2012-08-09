@@ -1,9 +1,16 @@
 \section{Neuronale Netze}
 Ein Neuron ist ein Schwingkreis. Es hat n Eingänge und einen Ausgang. Die Werte der
 Eingänge werden summiert. Wenn die Summe der Eingänge einen Schwellwert übertrifft, wechselt der Ausgang, das Neuron feuert.
-Für die Schwellwertfunktion, wird entweder die Signum (0/1) oder die Sigmoid-Funktion welche ``weiche'' Kanten hat verwendet.
+Für die Schwellwertfunktion, wird entweder die Signum (0/1) oder die Sigmoid-Funktion welche ``weiche'' Kanten hat und ableitbar ist verwendet.
+\begin{figure}[htb]
+	\centering
+	\input{tikz/sigmoid}
+	\caption{Sigmoid Funktion mit a=1}
+\end{figure}
+\newpage
 \subsection{Übersicht}
 \begin{table}[htbp]
+	\centering
 	\begin{tabular}{l | p{8cm}}
 		Typ & Merkmale \\
 		\hline

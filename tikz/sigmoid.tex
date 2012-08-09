@@ -1,0 +1,12 @@
+\begin{tikzpicture}[domain=-5:5]
+	\draw[very thin, color=gray] (-4.9,0.0) grid (4.9,4.9);
+
+	\draw[->] (-5.2,0) -- (5.2,0) node[right] {$x$};
+	\draw[->] (0,-0.2) -- (0,5.2) node[above] {$f(x|a=1)$};
+	\draw (-0.1,5) --(0.1,5) node [left] {$1~$};
+	\draw (-0.1,2.5) -- (0.1,2.5) node [left] {$0.5~$};
+
+	\draw[color=blue] plot (\x,{5 / (1+exp(-\x))}) node[right] {$\frac{1}{1+e^{-ax}}$};
+
+\end{tikzpicture}
+
