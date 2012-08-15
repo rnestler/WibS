@@ -1,26 +1,35 @@
 \section{Clustering}
 \subsection{Übersicht}
-\input{tikz/clustering}
+\begin{figure}[h!]
+	\centering
+	\input{tikz/clustering}
+	\caption{Verschiedene Clustering Verfahren}
+\end{figure}
+
 \subsection{Distanzmasse}
 Bevor man überhaupt clustern kann, benötigt man eine passende Distanzfunktion für die einzelnen Elemente untereinander und zu einem Cluster.
-\begin{table}[htbp]
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{p{8cm} | p{8cm}}
 		Beschreibung & Formel \\
 		\hline
-		{Der minimale/maximale Abstand} & {
-			$\underset{a \in A, b \in B}{min}\{d(a,b)\} ~ \underset{a \in A, b \in B}{max}\{d(a,b)\}$
+		{Der minimale Abstand zweier Elemente aus beiden Clustern (single linkage clustering)} & {
+			$\underset{a \in A, b \in B}{min}\{d(a,b)\}$
+		}
+		\\
+		{Der maximale Abstand zweier Elemente aus beiden Clustern (complete linkage clustering)} & {
+			$\underset{a \in A, b \in B}{max}\{d(a,b)\}$
 		}
 		\\
 		{Der durchschnittliche Abstand aller Elementpaare aus den beiden Clustern (average linkage clustering)} & {
 			$\frac{1}{|A||B|} \sum\limits_{a \in A, b \in B}{d(a,b)}$
 		}
 		\\
-		{Der durchschnittliche Abstand aller Elementpaare aus der Vereinigung von A und B} & {
+		{Der durchschnittliche Abstand aller Elementpaare aus der Vereinigung von A und B (average group linkage)} & {
 			$\frac{1}{|C|} \sum\limits_{x,y \in C, C=A \cup B}{d(x,y)}$
 		}
 		\\
-		{Der Abstand der Mittelwerte der beiden Cluster} & {
+		{Der Abstand der Mittelwerte der beiden Cluster (centroid method)} & {
 			$d(\overline a, \overline b)$
 		}
 		\\
@@ -31,8 +40,31 @@ Bevor man überhaupt clustern kann, benötigt man eine passende Distanzfunktion 
 	\caption{Verschiedene Distanzmasse}
 	\label{tab:distanzmasse}
 \end{table}
+
 \subsection{K-means Clustering}
-Unüberwachtes hartes Clusteringverfahren welches nicht unbedingt konvergiert.
+Unüberwachtes hartes Clusteringverfahren welches nicht unbedingt konvergiert. Es ornet jeden Punkt demjenigen Cluster zu, dessen Mittelpunk ihm am nächsten liegt.
+\begin{enumerate}
+	\item Wahl der Anzahl Clusters k
+	\item k Clusters erstellen (Mittelpunke zufällig wählen)
+	\item Punkte den Clustern Zuordnen
+	\item Berechnung der neuen Cluster-Schwerpunkte (Mittelpunkte)
+	\item Wiederholung der letzten beiden Punkte bis ein Stabilitätsmerkmal erreicht ist
+\end{enumerate}
+
+\subsubsection{Nachteile}
+\begin{itemize}
+	\item Nicht immer das gleiche Ergebnis
+	\item Muss nicht konvergieren
+	\item Funkioniet nur gut bei gaussverteilten Haufen
+\end{itemize}
+
+\subsection{Ward-Clustering}
+\begin{itemize}
+	\item Bottom-up man begint mit einzelnen Objekten
+	\item Immer die beiden ähnlichsten werden zusammengelegt
+	\item Sobald genügend wenige Cluster übrigbleiben ist man fertig
+\end{itemize}
+
 \subsection{SCC- / Pott-Spin Clustering}
 Es wird nicht vorgegeben wieviel Cluster erwartet werden. Pott-Spin verwendet Temperatur, SCS kann Cluster unterschiedlicher Dichte aufspüren.
 
