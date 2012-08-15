@@ -7,9 +7,9 @@ Für die Schwellwertfunktion, wird entweder die Signum (0/1) oder die Sigmoid-Fu
 	\input{tikz/sigmoid}
 	\caption{Sigmoid Funktion mit a=1}
 \end{figure}
-\newpage
 \subsection{Übersicht}
 \begin{table}[htbp]
+	\setlist{nolistsep}
 	\centering
 	\begin{tabular}{l | p{8cm}}
 		Typ & Merkmale \\
@@ -60,6 +60,14 @@ Das Perzeptron ist das klassische mathematische Neuron. Es besteht aus:
 \subsection{Backpropagation}
 \subsection{Holographisches Perzeptron}
 \subsection{Kohonennetze}
+Kohonennetze sind selbstorganisierend. Sie bestehen aus aneinandergereiten Neuronen, mit variablen Abstand (Gummiband).
+\subsubsection{Beispiel Travelling Salesman}
+\begin{itemize}
+	\item Neuronen zufällig platzieren
+	\item Auswahl zufälliger Stadt
+	\item Das am nächsten liegende Neuron nehmen und näher zu dieser Stadt rücken, die anderen Neuronen nachziehen
+	\item Wiederholen bis alle Neuronen ihren Platz gefunden haben
+\end{itemize}
 \subsection{Hopfield}
 Das Hopfield-Netz ist geeignet um Muster (Bilder) zu kennen. Dabei wird pro Pixel ein binäres Neuron verwendet (-1,1).
 Dazu erstellt man eine Korrelationsmatrix, welche alle Muster enthält, es wird nicht gelernt!
