@@ -1,2 +1,25 @@
-\section{Genetische Programmierung}
+\section{Genetische Algorithmen}
+Genetische Algorithmen gründen auf der Formalisierung der wichtigsten
+Prozesse und Begriffe aus der Evolution:
+\begin{itemize}
+	\item Kreuzung
+	\item Mutation
+	\item Fitness
+\end{itemize}
+Keine Muster für Zuordnung, dafür Funktionen und eine Fitnesslandschaft.
+Die Fitnesslandschaft ersetzt die Korrelationsmatrix des
+Hopfield-Netzwerks.
+\subsection{Ablauf}
+\begin{enumerate}
+	\item Zufällige Chromosomen erstellen
+	\item Gemäss Fitness Wahrscheinlichkeit für nächste Kreuzung bestimmen
+	\item Zwei Chromosomen mit skalierter Wahrscheinlichkeit auswählen
+		und an zufälliger Stelle teilen und je mit dem anderen
+		Gegenstück zusammensetzen.
+	\item Die neu erstellten Chromosomen dürfen leicht mutiert werden.
+\end{enumerate}
+\subsection{Genetische Programmierung}
+Anwendung von genetischen Algorithmen auf Programme selbst, bei denen
+der Zweck definiert ist. Die Fitnessfunktion entspricht dabei dem
+Erfüllen der Aufgabe.
 
