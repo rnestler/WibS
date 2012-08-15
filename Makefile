@@ -4,7 +4,7 @@ LL=pdflatex
 
 all: $(TARGET) revision.tex
 
-pdf: all
+pdf: $(TARGET) revision.tex
 
 .PHONY : clean revision.tex
 
