@@ -15,7 +15,7 @@ revision.tex:
 	$(LL) $<
 	rm $(TARGET)
 
-$(TARGET): $(TARGET:%.pdf=%.tex) $(TARGET:%.pdf=%.toc) $(SRC)
+$(TARGET): $(TARGET:%.pdf=%.tex) $(SRC)
 	$(LL) $<
 
 clean:
