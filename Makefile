@@ -2,9 +2,9 @@ TARGET=WibS.pdf
 SRC = sections/*.tex header/header.tex tikz/*.tex
 LL=pdflatex
 
-all: $(TARGET) revision.tex
+all: revision.tex $(TARGET)
 
-pdf: $(TARGET) revision.tex
+pdf: revision.tex $(TARGET)
 
 .PHONY : clean revision.tex
 
@@ -20,8 +20,6 @@ $(TARGET): $(TARGET:%.pdf=%.tex) $(SRC)
 
 clean:
 	rm -f $(TARGET)
-	rm -f *.out
-	rm -f *.aux
-	rm -f *.log
-	rm -f *.toc
+	rm -f *.out *.aux *.log *.toc
+	rm -f sections/*.log
 
