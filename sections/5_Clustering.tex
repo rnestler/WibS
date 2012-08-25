@@ -10,7 +10,7 @@
 Bevor man überhaupt clustern kann, benötigt man eine passende Distanzfunktion für die einzelnen Elemente untereinander und zu einem Cluster.
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{p{8cm} | p{8cm}}
+	\begin{tabularx}{\textwidth}{p{11cm}| X }
 		Beschreibung & Formel \\
 		\hline
 		{Der minimale Abstand zweier Elemente aus beiden Clustern (single linkage clustering)} & {
@@ -36,7 +36,7 @@ Bevor man überhaupt clustern kann, benötigt man eine passende Distanzfunktion 
 		{Die Zunahme der Varianz beim Vereinigen von A und B (Wards method)} & {
 			$\frac{\overline a, \overline b}{\frac{1}{|A|} + \frac{1}{|B|}}$
 		}
-	\end{tabular}
+	\end{tabularx}
 	\caption{Verschiedene Distanzmasse}
 	\label{tab:distanzmasse}
 \end{table}

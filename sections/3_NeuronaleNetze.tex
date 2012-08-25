@@ -7,48 +7,58 @@ Für die Schwellwertfunktion, wird entweder die Signum (0/1) oder die Sigmoid-Fu
 	\input{tikz/sigmoid}
 	\caption{Sigmoid Funktion mit a=1}
 \end{figure}
+
 \subsection{Übersicht}
-\begin{table}[htbp]
-	\setlist{nolistsep}
-	\centering
-	\begin{tabular}{l | p{8cm}}
+\begin{table}[!h]
+	\begin{tabularx}{\textwidth}{l | X}
 		Typ & Merkmale \\
 		\hline
-		{klassisches Perzeptron} & {
-			\begin{itemize}
-				\item Können nur linear separierbare Probleme lösen
-				\item Ein einzelnes Perzeptron-Neuron kann 14 Schnittebenen legen
-			\end{itemize}
-		}
+		klassisches Perzeptron &
+		\vspace{-2.5mm}
+		\begin{itemize}
+			\item Kann nur linear separierbare Probleme lösen
+			\item Ein einzelnes Perzeptron-Neuron kann 14 Schnittebenen legen
+		\end{itemize}
 		\\
-		{Holographisches Perzeptron} & {
-			\begin{itemize}
-				\item Verwendet Komplexe Zahlen
-				\item Sehr grosse Speicherfähigkeit
-				\item Grosse Verarbeitungsgeschwindigkeit
-				\item Stochastische Resonanz (benötigt Rauschen im Input)
-			\end{itemize}
-		}
+		Werbos Perzeptron &
+		\vspace{-2.5mm}
+		\begin{itemize}
+			\item Kann auch linear nicht separierbare Probleme lösen
+			\item Hat einen zusäzlichen Eingang (x·y)
+			\item Entspricht eigentlich einem Netz aus klassischen Perzeptronen mit einer
+				Versteckten Schicht
+		\end{itemize}
 		\\
-		{Kohonen-Netze} & {
-			\begin{itemize}
-				\item Topographisches Netz
-				\item Geeignet für TSP-Problem
-			\end{itemize}
-		}
+		Holographisches Perzeptron &
+		\vspace{-2.5mm}
+		\begin{itemize}
+			\item Verwendet Komplexe Zahlen
+			\item Sehr grosse Speicherfähigkeit
+			\item Grosse Verarbeitungsgeschwindigkeit
+			\item Stochastische Resonanz (benötigt Rauschen im Input)
+		\end{itemize}
 		\\
-		{Hopfield} & {
-			\begin{itemize}
-				\item Lernt nicht bzw. unüberwachtes Lernen
-				\item Nur eine Schicht, gleichzeitig Ein- und Ausgabe
-				\item Jedes der binären Neuronen mit jedem verbunden
-				\item Erkennt invertierte Muster als gleich
-			\end{itemize}
-		}
-	\end{tabular}
+		Kohonen-Netze &
+		\vspace{-2.5mm}
+		\begin{itemize}
+			\item Topographisches Netz
+			\item Geeignet für TSP-Problem
+		\end{itemize}
+		\\
+		Hopfield &
+		\vspace{-2.5mm}
+		\begin{itemize}
+			\item Signum-Funktion als Ausgabefunktion
+			\item Lernt nicht bzw. unüberwachtes Lernen
+			\item Nur eine Schicht, gleichzeitig Ein- und Ausgabe
+			\item Jedes der binären Neuronen mit jedem verbunden
+			\item Erkennt invertierte Muster als gleich
+		\end{itemize}
+	\end{tabularx}
 	\caption{Vergleich zwischen verschiedenen Neuronalen Netzen}
 	\label{tab:nnetze}
 \end{table}
+
 \subsection{Klassisches Neuron / Perzeptron}
 Das Perzeptron ist das klassische mathematische Neuron. Es besteht aus:
 \begin{itemize}
@@ -56,11 +66,28 @@ Das Perzeptron ist das klassische mathematische Neuron. Es besteht aus:
 	\item Feuerschwelle
 	\item Ausgabefunktion (Sigmoid)
 \end{itemize}
+
 \subsection{Netze elementarer Perzeptronen}
+\begin{figure}[h!]
+	\centering
+	\input{tikz/werbos}
+	\caption{Werbos als Netz von Perzeptronen (XOR-Funktion)}
+\end{figure}
+\begin{itemize}
+	\item Keine versteckte Schicht erlaubt nur linear trennbare Probleme
+	\item Eine versteckte Schicht kann zwei konvexe offene oder abgeschlossene Bereiche trennen
+	\item Zwei versteckte Schichten können auch nicht-kontinuierliche und nicht zusammenhängende
+		Arumentmengen unterteilen. Anzahl und Form hängt von der Anzahl Knoten ab.
+\end{itemize}
+
 \subsection{Backpropagation}
+
 \subsection{Holographisches Perzeptron}
+
 \subsection{Kohonennetze}
-Kohonennetze sind selbstorganisierend. Sie bestehen aus aneinandergereiten Neuronen, mit variablen Abstand (Gummiband).
+Kohonennetze sind selbstorganisierend. Sie bestehen aus aneinandergereiten Neuronen, mit variablen
+Abstand (Gummiband).
+
 \subsubsection{Beispiel Travelling Salesman}
 \begin{itemize}
 	\item Neuronen zufällig platzieren
@@ -68,9 +95,10 @@ Kohonennetze sind selbstorganisierend. Sie bestehen aus aneinandergereiten Neuro
 	\item Das am nächsten liegende Neuron nehmen und näher zu dieser Stadt rücken, die anderen Neuronen nachziehen
 	\item Wiederholen bis alle Neuronen ihren Platz gefunden haben
 \end{itemize}
+
 \subsection{Hopfield}
-Das Hopfield-Netz ist geeignet um Muster (Bilder) zu kennen. Dabei wird pro Pixel ein binäres Neuron verwendet (-1,1).
-Dazu erstellt man eine Korrelationsmatrix, welche alle Muster enthält, es wird nicht gelernt!
-Pro zu erkennendes Muster werden etwa 7 Neuronen benötigt.
-Für eine gute Erkennung sollten die Muster möglichst orthogonal, also linear unabhängig sein.
+Das Hopfield-Netz ist geeignet um Muster (Bilder) zu kennen. Dabei wird pro Pixel ein binäres Neuron
+verwendet (-1,1).  Dazu erstellt man eine Korrelationsmatrix, welche alle Muster enthält, es wird
+nicht gelernt!  Pro zu erkennendes Muster werden etwa 7 Neuronen benötigt.  Für eine gute Erkennung
+sollten die Muster möglichst orthogonal, also linear unabhängig sein.
 
