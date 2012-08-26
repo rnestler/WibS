@@ -1,5 +1,15 @@
 \section{Optimierung}
-\subsection{NIM-Spiel / Dame}
+\subsection{Graphische Methoden}
+\subsubsection{Sprague Grundy}
+\begin{tabularx}{\textwidth}{XX}
+	\vspace{-4cm}
+\begin{enumerate}
+	\item Endknoten (Verlierpositionen) haben Rang 0
+	\item Von jeder Gewinnerposition führt mind. ein Pfeil auf einen Rang 0 Knoten
+	\item Alle Pfeile von einem Knoten mit Rang 0 führen zu einem Knoten mit Rang $>$ 0
+\end{enumerate} &
+\input{tikz/sprague_grundy}
+\end{tabularx}
 
 \subsection{Lagrange}
 Lagrange Multiplikatoren definieren Nebenbedingungen:\\
