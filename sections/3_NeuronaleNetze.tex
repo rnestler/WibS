@@ -77,22 +77,23 @@ Eingang der immer auf 1 gesetzt ist umgesetzt werden.  Das Gewicht dieses
 Eingangs entspricht dann der Feuerschwelle.
 
 \subsection{Netze elementarer Perzeptronen}
-\begin{figure}[h!]
-	\centering
-	\input{tikz/werbos}
-	\caption{Werbos als Netz von Perzeptronen (XOR-Funktion)}
-\end{figure}
 \begin{itemize}
 	\item Keine versteckte Schicht erlaubt nur linear trennbare Probleme
 	\item Eine versteckte Schicht kann zwei konvexe offene oder abgeschlossene Bereiche trennen
 	\item Zwei versteckte Schichten können auch nicht-kontinuierliche und nicht zusammenhängende
 		Arumentmengen unterteilen. Anzahl und Form hängt von der Anzahl Knoten ab.
 \end{itemize}
+\begin{figure}[h!]
+	\centering
+	\input{tikz/werbos}
+	\caption{Werbos als Netz von Perzeptronen (XOR-Funktion)}
+\end{figure}
 
 \subsubsection{Backpropagation}
 Fehlerzurückverfolgung bei der Rückwärts durchs Netz Zurückverfolgt wird,
 welche Gewichte den grössten Einfluss auf Die Ausgabe haben.
-\verweiskurz{2_Gradientenabstieg}
+Dies entpricht der Ableitung nach den Gewichten und ist somit auch ein
+Gradientenabstieg \verweiskurz{2_Gradientenabstieg}
 
 \subsection{Holographisches Perzeptron}
 Bei diesen Neuronen bleiben die Phaseninformation im Gegensatz zu den
@@ -120,20 +121,21 @@ sein.  Die Berechnung der Korrellationsmatrix funktioniert folgendermassen:
 \begin{itemize}
 	\item Alle Muster definieren $x_1 = \begin{bmatrix}-1&1&1&1 \end{bmatrix};
 			x_2 = \begin{bmatrix}1&1&1&-1\end{bmatrix}$
-	\item Energiematrix aus Korrelationsmatrizen erstellen: $M = x_1' x_1 + x_2'
-		x_2 =
+	\item Korrelationsmatrizen erstellen: $M_1 = x_1' x_1 =
 		\begin{bmatrix}
 			 1&-1&-1&-1 \\
 			-1& 1& 1& 1 \\
 			-1& 1& 1& 1 \\
 			-1& 1& 1& 1
-		\end{bmatrix} +
+		\end{bmatrix} M_2 =x_2'+x_2 =
 		\begin{bmatrix}
 			 1& 1& 1&-1\\
 			 1& 1& 1&-1\\
 			 1& 1& 1&-1\\
 			-1&-1&-1& 1
-		\end{bmatrix} =
+		\end{bmatrix}$
+	\item Die Energiematrix entspricht der Summe der Korrelatiosmatrizen:
+		$M = M_1 + M_2 = 
 		\begin{bmatrix}
 			 2&0&0&-2\\
 			 0&2&2& 0\\
