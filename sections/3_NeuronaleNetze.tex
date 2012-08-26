@@ -119,22 +119,22 @@ gute Erkennung sollten die Muster möglichst orthogonal, also linear unabhängig
 sein.  Die Berechnung der Korrellationsmatrix funktioniert folgendermassen:
 
 \begin{itemize}
-	\item Alle Muster definieren $x_1 = \begin{bmatrix}-1&1&1&1 \end{bmatrix};
+	\item Alle Muster definieren\\ $x_1 = \begin{bmatrix}-1&1&1&1 \end{bmatrix};
 			x_2 = \begin{bmatrix}1&1&1&-1\end{bmatrix}$
-	\item Korrelationsmatrizen erstellen: $M_1 = x_1' x_1 =
+	\item Korrelationsmatrizen erstellen:\\ $M_1 = x_1^T x_1 =
 		\begin{bmatrix}
 			 1&-1&-1&-1 \\
 			-1& 1& 1& 1 \\
 			-1& 1& 1& 1 \\
 			-1& 1& 1& 1
-		\end{bmatrix} M_2 =x_2'+x_2 =
+		\end{bmatrix} M_2 =x_2^T x_2 =
 		\begin{bmatrix}
 			 1& 1& 1&-1\\
 			 1& 1& 1&-1\\
 			 1& 1& 1&-1\\
 			-1&-1&-1& 1
 		\end{bmatrix}$
-	\item Die Energiematrix entspricht der Summe der Korrelatiosmatrizen:
+	\item Die Energiematrix entspricht der Summe der Korrelatiosmatrizen:\\
 		$M = M_1 + M_2 = 
 		\begin{bmatrix}
 			 2&0&0&-2\\
