@@ -102,16 +102,53 @@ Neuronen, mit variablen Abstand (Gummiband).
 \end{itemize}
 
 \subsection{Hopfield}
-Das Hopfield-Netz ist geeignet um Muster (Bilder) zu kennen. Dabei wird pro Pixel ein binäres Neuron
-verwendet (-1,1).  Dazu erstellt man eine Korrelationsmatrix, welche alle Muster enthält, es wird
-nicht gelernt!  Pro zu erkennendes Muster werden etwa 7 Neuronen benötigt.  Für eine gute Erkennung
-sollten die Muster möglichst orthogonal, also linear unabhängig sein.
-Die Berechnung der Korrellationsmatrix funktioniert folgendermassen:
+Das Hopfield-Netz ist geeignet um Muster (Bilder) zu kennen. Dabei wird pro
+Pixel ein binäres Neuron verwendet (-1,1).  Dazu erstellt man eine
+Korrelationsmatrix, welche alle Muster enthält, es wird nicht gelernt!  Für eine
+gute Erkennung sollten die Muster möglichst orthogonal, also linear unabhängig
+sein.  Die Berechnung der Korrellationsmatrix funktioniert folgendermassen:
 
 \begin{itemize}
-	\item Alle Muster definieren $x_1 = \left[-1 1 1 1\right]; x_2 =  [1 1 1 -1]$
-	\item Energiematrix aus Korrelationsmatrizen erstellen $M = x_1' x_1 + x_2' x_2$
-	\item $M_{i,i} = 0$
+	\item Alle Muster definieren $x_1 = \begin{bmatrix}-1&1&1&1 \end{bmatrix};
+			x_2 = \begin{bmatrix}1&1&1&-1\end{bmatrix}$
+	\item Energiematrix aus Korrelationsmatrizen erstellen: $M = x_1' x_1 + x_2'
+		x_2 =
+		\begin{bmatrix}
+			 1&-1&-1&-1 \\
+			-1& 1& 1& 1 \\
+			-1& 1& 1& 1 \\
+			-1& 1& 1& 1
+		\end{bmatrix} +
+		\begin{bmatrix}
+			 1& 1& 1&-1\\
+			 1& 1& 1&-1\\
+			 1& 1& 1&-1\\
+			-1&-1&-1& 1
+		\end{bmatrix} =
+		\begin{bmatrix}
+			 2&0&0&-2\\
+			 0&2&2& 0\\
+			 0&2&2& 0\\
+			-2&0&0& 2
+		\end{bmatrix}$
+	\item Diagonalelemente auf 0 setzen: $M_{i,i} = 0 \rightarrow
+		M=\begin{bmatrix}
+			 0&0&0&-2\\
+			 0&0&2& 0\\
+			 0&2&0& 0\\
+			-2&0&0& 0
+		\end{bmatrix}$
+\end{itemize}
+\subsubsection{Benötige Anzahl Neuronen}
+Pro zu erkennendes Muster ($M$) werden etwa 7 Neuronen ($N$) benötigt.
+\begin{itemize}
+	\item Bis einige 100 Neuronen: $M_{max} ~ 0.15N$
+	\item Für Netze mit sehr grossem N: $M_{max} ~ \frac{0.5N}{log(N)}$
+	\item Allgemein gilt $M_{max} < N$
+	\item Für $M >= 0.15N$ bilden sich mehr Nebenminimas in denen das Netz
+		hängen bleiben kann (Rütteln kann helfen hinauszukommen)
+	\item Ab $M > 0.5N$ degenerieren die Energiebarrieren zwischen den Minima,
+		wodruch das Netz unbrauchbar wird
 \end{itemize}
 
 % vim:tw=80
