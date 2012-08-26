@@ -60,12 +60,21 @@ Für die Schwellwertfunktion, wird entweder die Signum (0/1) oder die Sigmoid-Fu
 \end{table}
 
 \subsection{Klassisches Neuron / Perzeptron}
-Das Perzeptron ist das klassische mathematische Neuron. Es besteht aus:
-\begin{itemize}
-	\item Summierer
-	\item Feuerschwelle
-	\item Ausgabefunktion (Sigmoid)
-\end{itemize}
+Das Perzeptron ist das klassische mathematische Neuron. Es besteht aus:\\
+\begin{tabularx}{\textwidth}{XX}
+	\vspace{-1.5cm}
+	\begin{itemize}
+		\item Summierer
+		\item Feuerschwelle
+		\item Ausgabefunktion (Sigmoid)
+	\end{itemize} &
+	\input{tikz/perzeptron}
+\end{tabularx}
+
+Die Feuerschwelle wird benötigt um Beispielsweise boolsche Gatter zu
+implementieren, was sonst unmöglich wäre.  Sie kann mit einem Zusätzlichen
+Eingang der immer auf 1 gesetzt ist umgesetzt werden.  Das Gewicht dieses
+Eingangs entspricht dann der Feuerschwelle.
 
 \subsection{Netze elementarer Perzeptronen}
 \begin{figure}[h!]
