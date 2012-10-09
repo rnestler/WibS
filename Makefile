@@ -1,6 +1,6 @@
 TARGET=WibS.pdf
 SRC = sections/*.tex header/header.tex tikz/*.tex
-LL=pdflatex
+LL=latexmk -pdf
 
 all: revision.tex $(TARGET)
 
@@ -19,7 +19,10 @@ $(TARGET): $(TARGET:%.pdf=%.tex) $(SRC)
 	$(LL) $<
 
 clean:
+	rm -f revision.tex
 	rm -f $(TARGET)
 	rm -f *.out *.aux *.log *.toc
 	rm -f sections/*.log
+	rm -f *.fls
+	rm -f *latexmk
 
